@@ -1,0 +1,41 @@
+title Authentification system | Login
+
+Client->Server: Login : { ENT login + password }
+
+Server->Database : User exists ? 
+
+Database->Database : Search user in database
+
+alt User doesn't exist
+
+Database--#red>Server : User not found
+
+Server--#red>Client : Incorrect user
+
+else User exists
+
+Database--#green>Server : User found
+
+Server-->CAS : Authentication : { ENT login + password }
+
+alt Incorrect password
+
+CAS--#red>Server : Authentication failed
+
+Server--#red>Client : Incorrect password
+
+else Correct password
+
+CAS--#green>Server : Successful authentication
+
+Server->Server : Generate token
+
+Server--#green>Client : Sending token
+
+Client->Client : Store tokens
+
+end
+
+end
+
+

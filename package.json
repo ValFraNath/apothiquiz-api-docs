@@ -1,0 +1,31 @@
+{
+  "name": "guacamole-api-docs",
+  "version": "1.0.0",
+  "description": "Glowing Octo Guacamole API Documentation powered by apidoc",
+  "main": "none",
+  "dependencies": {
+    "apidoc": "^0.26.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "apidoc -i ../server/controllers -o docs; cp -r assets/ docs/"
+  },
+  "author": "",
+  "apidoc": {
+    "name": "Guacamole API documentation",
+    "version": "1.0.0",
+    "description": "Documentation for the REST API of Glowing Octo Guacamole",
+    "title": "Documentation Guacamole API ",
+    "url": "https://glowing-octo-guacamole.com/api/v1",
+    "header": {
+      "title": "Introduction",
+      "filename": "header.md"
+    },
+    "template": {
+      "withCompare": true,
+      "withGenerator": true,
+      "aloneDisplay": false
+    }
+  }
+}
