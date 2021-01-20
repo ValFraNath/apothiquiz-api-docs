@@ -167,6 +167,154 @@ define({ "api": [
     "groupTitle": "User"
   },
   {
+    "type": "patch",
+    "url": "/user/:pseudo",
+    "title": "Patch user informations",
+    "name": "PatchUserInformations",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "pseudo",
+            "description": "<p>(optional) ENT login</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "Object",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>(optional) Avatar object</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "avatar.colorBG",
+            "description": "<p>Hex background color</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "avatar.colorBody",
+            "description": "<p>Hex Body colod</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.eyes",
+            "description": "<p>Number of the eyes</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.hands",
+            "description": "<p>Number of the hands</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.hat",
+            "description": "<p>Number of the hat</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.mouth",
+            "description": "<p>Number of the mouth</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "pseudo",
+            "description": "<p>ENT login</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "wins",
+            "description": "<p>Number of wins</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "losses",
+            "description": "<p>Number of losses</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>Avatar object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "avatar.colorBG",
+            "description": "<p>Hex background color</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "avatar.colorBody",
+            "description": "<p>Hex Body colod</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.eyes",
+            "description": "<p>Number of the eyes</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.hands",
+            "description": "<p>Number of the hands</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.hat",
+            "description": "<p>Number of the hat</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.mouth",
+            "description": "<p>Number of the mouth</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../server/controllers/user.js",
+    "groupTitle": "User"
+  },
+  {
     "type": "post",
     "url": "/user/login",
     "title": "Post a user login",

@@ -25,9 +25,9 @@ If all user data is correct, the API provides a token, which will be needed for 
 
 -> See [Login endpoint](#post-login).
 
-![Login system diagram](/assets/AuthLoginDiagram.svg)
+![Login system diagram](./assets/AuthLoginDiagram.svg)
 
-_Diagram made with [sequencediagram.org](https://sequencediagram.org/) ([source](/assets/AuthLoginDiagramSource.txt))._
+_Diagram made with [sequencediagram.org](https://sequencediagram.org/) ([source](./assets/AuthLoginDiagramSource.txt))._
 
 ## Authenticated requests
 
