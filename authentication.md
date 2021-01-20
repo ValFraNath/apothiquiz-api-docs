@@ -1,20 +1,3 @@
-# Introduction
-
-This example documentation contains all the possible configuration options for apidoc.
-
-To generate this documentation:
-
-```bash
-git clone https://github.com/apidoc/apidoc && cd apidoc
-npm install --prod
-./bin/apidoc -i example -o /tmp/doc
-$BROWSER /tmp/doc
-```
-
-# Schema
-
-All API access is through HTTP(S) requests at `domain.tld/api/v1`. All request and response bodies are `application/json`.
-
 # Authentication
 
 ## Login

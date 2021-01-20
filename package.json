@@ -9,7 +9,10 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "apidoc -i ../server/controllers -o docs; cp -r assets/ docs/"
+    "build:assets": "cp -r assets/ docs/",
+    "build:base": "apidoc -i ../server/controllers -o docs",
+    "build:clean": "./remove-sample-request.sh",
+    "build": "npm run build:base; npm run build:clean; npm run build:assets;"
   },
   "author": "",
   "apidoc": {
@@ -19,13 +22,14 @@
     "title": "Documentation Guacamole API ",
     "url": "https://glowing-octo-guacamole.com/api/v1",
     "header": {
-      "title": "Introduction",
-      "filename": "header.md"
+      "title": "Authentication",
+      "filename": "authentication.md"
     },
     "template": {
-      "withCompare": true,
+      "withCompare": false,
       "withGenerator": true,
       "aloneDisplay": false
-    }
+    },
+    "sampleUrl": ""
   }
 }
