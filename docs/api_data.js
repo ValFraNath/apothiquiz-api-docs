@@ -81,9 +81,95 @@ define({ "api": [
     "groupTitle": "Server"
   },
   {
+    "type": "get",
+    "url": "/user/:pseudo",
+    "title": "Get user informations",
+    "name": "GetUserInformations",
+    "group": "User",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "pseudo",
+            "description": "<p>ENT login</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "wins",
+            "description": "<p>Number of wins</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "losses",
+            "description": "<p>Number of losses</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Object",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>Avatar object</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "avatar.colorBG",
+            "description": "<p>Hex background color</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "avatar.colorBody",
+            "description": "<p>Hex Body colod</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.eyes",
+            "description": "<p>Number of the eyes</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.hands",
+            "description": "<p>Number of the hands</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.hat",
+            "description": "<p>Number of the hat</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "avatar.mouth",
+            "description": "<p>Number of the mouth</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../server/controllers/user.js",
+    "groupTitle": "User"
+  },
+  {
     "type": "post",
     "url": "/user/login",
-    "title": "Login a user",
+    "title": "Post a user login",
     "name": "PostUserLogin",
     "group": "User",
     "parameter": {
@@ -91,14 +177,14 @@ define({ "api": [
         "Parameter": [
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "userPseudo",
             "description": "<p>ENT Login</p>"
           },
           {
             "group": "Parameter",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "userPassword",
             "description": "<p>ENT password</p>"
@@ -111,14 +197,14 @@ define({ "api": [
         "Success 200": [
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "pseudo",
             "description": "<p>the ENT login</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "string",
             "optional": false,
             "field": "token",
             "description": "<p>the user token</p>"
