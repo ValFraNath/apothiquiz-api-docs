@@ -169,15 +169,15 @@ define({ "api": [
             "group": "Success 200",
             "type": "number",
             "optional": false,
-            "field": "wins",
-            "description": "<p>Number of wins</p>"
+            "field": "victories",
+            "description": "<p>Number of victories</p>"
           },
           {
             "group": "Success 200",
             "type": "number",
             "optional": false,
-            "field": "losses",
-            "description": "<p>Number of losses</p>"
+            "field": "defeats",
+            "description": "<p>Number of defeats</p>"
           },
           {
             "group": "Success 200",
@@ -374,15 +374,15 @@ define({ "api": [
             "group": "Success 200",
             "type": "number",
             "optional": false,
-            "field": "wins",
-            "description": "<p>Number of wins</p>"
+            "field": "victories",
+            "description": "<p>Number of victories</p>"
           },
           {
             "group": "Success 200",
             "type": "number",
             "optional": false,
-            "field": "losses",
-            "description": "<p>Number of losses</p>"
+            "field": "defeats",
+            "description": "<p>Number of defeats</p>"
           },
           {
             "group": "Success 200",
