@@ -45,17 +45,24 @@ define({ "api": [
           },
           {
             "group": "200",
-            "type": "String",
+            "type": "Number",
             "optional": false,
             "field": "question.goodAnswer",
-            "description": "<p>The good answer</p>"
+            "description": "<p>The good answer index</p>"
           },
           {
             "group": "200",
             "type": "Array[String]",
             "optional": false,
-            "field": "question.badAnswers",
-            "description": "<p>Three false answers</p>"
+            "field": "question.answers",
+            "description": "<p>All answers possible</p>"
+          },
+          {
+            "group": "200",
+            "type": "String",
+            "optional": false,
+            "field": "question.wording",
+            "description": "<p>The question wording</p>"
           }
         ]
       }
@@ -76,6 +83,14 @@ define({ "api": [
             "optional": false,
             "field": "NotFound",
             "description": "<p>Incorrect type of question</p>"
+          }
+        ],
+        "422": [
+          {
+            "group": "422",
+            "optional": false,
+            "field": "NotEnoughData",
+            "description": "<p>There is not enough data to generate the question</p>"
           }
         ]
       }
