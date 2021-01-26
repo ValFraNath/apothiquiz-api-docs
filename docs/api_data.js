@@ -1,5 +1,399 @@
 define({ "api": [
   {
+    "type": "post",
+    "url": "/duel/new",
+    "title": "Create a new duel",
+    "name": "CreateNewDuel",
+    "group": "Duel",
+    "permission": [
+      {
+        "name": "LoggedIn"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "opponent",
+            "description": "<p>The user you are challenging</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"opponent\" : \"nhoun\"\n}",
+          "type": "string"
+        }
+      ]
+    },
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n    \"id\" : 42\n}",
+          "type": "number"
+        }
+      ],
+      "fields": {
+        "201": [
+          {
+            "group": "201",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The created duel ID</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "404": [
+          {
+            "group": "404",
+            "optional": false,
+            "field": "OpponentNotFound",
+            "description": "<p>The specified opponent does not exist</p>"
+          }
+        ],
+        "422": [
+          {
+            "group": "422",
+            "optional": false,
+            "field": "NotEnoughData",
+            "description": "<p>There is not enough data to generate questions</p>"
+          }
+        ],
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../server/controllers/duels.js",
+    "groupTitle": "Duel"
+  },
+  {
+    "type": "get",
+    "url": "/duel",
+    "title": "Get all duels of the logged user",
+    "name": "GetAllDuels",
+    "group": "Duel",
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "object[]",
+            "optional": false,
+            "field": ".",
+            "description": "<p>All duels in an array</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "LoggedIn"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "../server/controllers/duels.js",
+    "groupTitle": "Duel",
+    "error": {
+      "fields": {
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "get",
+    "url": "/duel/:id",
+    "title": "Get a duel by its ID",
+    "name": "GetDuel",
+    "group": "Duel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The duel ID</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "object",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The duel id</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "opponent",
+            "description": "<p>The opponent username</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "userScore",
+            "description": "<p>The current score of the user</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "opponentScore",
+            "description": "<p>The current score of the opponent</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "boolean",
+            "optional": false,
+            "field": "inProgress",
+            "description": "<p><code>true</code> if the duel is not finished yet</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "currentRound",
+            "description": "<p>The number of the current round</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "array[]",
+            "optional": false,
+            "field": "rounds",
+            "description": "<p>The list of rounds</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "object[]",
+            "optional": false,
+            "field": "rounds.round",
+            "description": "<p>The list of questions</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "rounds.round.type",
+            "description": "<p>The type of the question</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "rounds.round.title",
+            "description": "<p>The title of this type of question</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "rounds.round.subject",
+            "description": "<p>The question subject - <em>if the round is the current, or finished</em></p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string",
+            "optional": false,
+            "field": "rounds.round.wording",
+            "description": "<p>The wording of the question - <em>if the round is the current, or finished</em></p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "string[]",
+            "optional": false,
+            "field": "rounds.round.answers",
+            "description": "<p>The list of answers - <em>if the round is the current, or finished</em></p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "rounds.round.goodAnswer",
+            "description": "<p>Index of the good answer - <em>if the round is played by the user</em></p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "rounds.round.userAnswer",
+            "description": "<p>Index of the user answer - <em>if the round is played by the user</em></p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "number",
+            "optional": false,
+            "field": "rounds.round.opponentAnswer",
+            "description": "<p>Index of the opponent answer - <em>if the round is played by the user &amp; the opponent</em></p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n     \"id\" : 42,\n     \"inProgress\" : true,\n     \"currentRound\" : 2,\n     \"opponent\" : \"jjgoldman\",\n     \"userScore\" : 3,\n     \"opponentScore\" : 6,\n     \"rounds\" : [\n                    [\n                      {\n                        \"type\": 3,\n                        \"title\" : \"1 système - 4 molécules\",\n                        \"subject\": \"ANTIBIOTIQUE\",\n                        \"wording\": \"Quelle molécule appartient au système 'ANTIBIOTIQUE' ?\"\n                        \"answers\": [\"TELBIVUDINE\", \"PYRAZINAMIDE\", \"RITONAVIR\", \"TINIDAZOLE\"],\n                        \"goodAnswer\": 1,\n                        \"userAnswer\" : 0,\n                        \"opponentAnswer\" : 1\n                      },\n                      {\n                        \"type\": 3,\n                        \"title\" : \"1 système - 4 molécules\",\n                        \"subject\": \"ANTIVIRAL\",\n                        \"wording\": \"Quelle molécule appartient au système 'ANTIVIRAL' ?\"\n                        \"answers\": [\"CEFIXIME\", \"SPIRAMYCINE\", \"RILPIVIRINE\", \"ALBENDAZOLE\"],\n                        \"goodAnswer\": 2,\n                        \"userAnswer\" : 1,\n                        \"opponentAnswer\" : 3\n                      },\n                      ...\n                    ],\n                    [\n                      {\n                        \"type\": 2,\n                        \"title\" : \"1 molécule - 4 classes\"\n                        \"subject\": \"ZANAMIVIR\",\n                        \"wording\": \"À quelle classe appartient la molécule 'ZANAMIVIR' ?\"\n                        \"answers\": [\n                          \"INHIBITEURS DE NEURAMINISASE\", \n                          \"INHIBITEUR POLYMERASE NS5B\", \n                          \"PHENICOLES\", \n                          \"OXAZOLIDINONES\"\n                        ],\n                        \"goodAnswer\": 0,\n                        \"userAnswer\" : 0,\n                      },...\n                    ],\n                    [\n                      {\n                        \"type\" : 4,\n                        \"title\" : \"1 molécule - 4 systèmes\"\n                      },\n                      ...\n                    ]\n                    ...\n                  ]\n}",
+          "type": "object"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "404": [
+          {
+            "group": "404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p>The duel does not exist</p>"
+          }
+        ],
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../server/controllers/duels.js",
+    "groupTitle": "Duel"
+  },
+  {
+    "type": "post",
+    "url": "/duel/:id/:round",
+    "title": "Play a round of a duel",
+    "name": "PlayDuelRound",
+    "group": "Duel",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "id",
+            "description": "<p>The duel ID</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number",
+            "optional": false,
+            "field": "round",
+            "description": "<p>The round number</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "number[]",
+            "optional": false,
+            "field": "answers",
+            "description": "<p>The user answers</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"answers\" : [1,3,0,0,2]\n}",
+          "type": "type"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "object",
+            "optional": false,
+            "field": "duel",
+            "description": "<p>The updated duel</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "optional": false,
+            "field": "InvalidRound",
+            "description": "<p>The round is invalid</p>"
+          },
+          {
+            "group": "400",
+            "optional": false,
+            "field": "FinishedDuel",
+            "description": "<p>The duel is finished</p>"
+          },
+          {
+            "group": "400",
+            "optional": false,
+            "field": "AlreadyPlayed",
+            "description": "<p>The user has already played this round</p>"
+          },
+          {
+            "group": "400",
+            "optional": false,
+            "field": "InvalidAnswers",
+            "description": "<p>The user answers are invalid</p>"
+          }
+        ],
+        "404": [
+          {
+            "group": "404",
+            "optional": false,
+            "field": "NotFound",
+            "description": "<p>Duel does not exist</p>"
+          }
+        ],
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../server/controllers/duels.js",
+    "groupTitle": "Duel"
+  },
+  {
     "type": "get",
     "url": "/question/:type",
     "title": "Get a random question",
@@ -90,7 +484,7 @@ define({ "api": [
             "group": "422",
             "optional": false,
             "field": "NotEnoughData",
-            "description": "<p>There is not enough data to generate the question</p>"
+            "description": "<p>There is not enough data to generate questions</p>"
           }
         ]
       }
