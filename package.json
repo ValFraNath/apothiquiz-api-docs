@@ -10,7 +10,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build:assets": "cp -r assets/ docs/",
-    "build:base": "apidoc -i ../server/controllers -o docs",
+    "build:base": "apidoc -i ../*/server/controllers -o docs",
     "build:clean": "./remove-sample-request.sh",
     "build": "npm run build:base; npm run build:clean; npm run build:assets;"
   },

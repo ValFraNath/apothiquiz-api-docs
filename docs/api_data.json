@@ -25,7 +25,7 @@
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"opponent\" : \"nhoun\"\n}",
+          "content": "{\n    \"opponent\": \"nhoun\"\n}",
           "type": "string"
         }
       ]
@@ -79,7 +79,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../server/controllers/duels.js",
+    "filename": "../glowing-octo-guacamole/server/controllers/duels.js",
     "groupTitle": "Duel"
   },
   {
@@ -107,7 +107,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "../server/controllers/duels.js",
+    "filename": "../glowing-octo-guacamole/server/controllers/duels.js",
     "groupTitle": "Duel",
     "error": {
       "fields": {
@@ -156,7 +156,7 @@
             "type": "string",
             "optional": false,
             "field": "opponent",
-            "description": "<p>The opponent username</p>"
+            "description": "<p>The opponent's username</p>"
           },
           {
             "group": "Success 200",
@@ -184,7 +184,7 @@
             "type": "number",
             "optional": false,
             "field": "currentRound",
-            "description": "<p>The number of the current round</p>"
+            "description": "<p>Current round number</p>"
           },
           {
             "group": "Success 200",
@@ -219,21 +219,21 @@
             "type": "string",
             "optional": false,
             "field": "rounds.round.subject",
-            "description": "<p>The question subject - <em>if the round is the current, or finished</em></p>"
+            "description": "<p>The question subject - <em>if the round is the current one, or finished</em></p>"
           },
           {
             "group": "Success 200",
             "type": "string",
             "optional": false,
             "field": "rounds.round.wording",
-            "description": "<p>The wording of the question - <em>if the round is the current, or finished</em></p>"
+            "description": "<p>The wording of the question - <em>if the round is the current one, or finished</em></p>"
           },
           {
             "group": "Success 200",
             "type": "string[]",
             "optional": false,
             "field": "rounds.round.answers",
-            "description": "<p>The list of answers - <em>if the round is the current, or finished</em></p>"
+            "description": "<p>The list of answers - <em>if the round is the current one, or finished</em></p>"
           },
           {
             "group": "Success 200",
@@ -254,7 +254,7 @@
             "type": "number",
             "optional": false,
             "field": "rounds.round.opponentAnswer",
-            "description": "<p>Index of the opponent answer - <em>if the round is played by the user &amp; the opponent</em></p>"
+            "description": "<p>Index of the opponent's answer - <em>if the round is played by the user &amp; the opponent</em></p>"
           }
         ]
       },
@@ -287,7 +287,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../server/controllers/duels.js",
+    "filename": "../glowing-octo-guacamole/server/controllers/duels.js",
     "groupTitle": "Duel"
   },
   {
@@ -390,7 +390,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../server/controllers/duels.js",
+    "filename": "../glowing-octo-guacamole/server/controllers/duels.js",
     "groupTitle": "Duel"
   },
   {
@@ -490,7 +490,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../server/controllers/question.js",
+    "filename": "../glowing-octo-guacamole/server/controllers/question.js",
     "groupTitle": "Question"
   },
   {
@@ -520,7 +520,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../server/controllers/api.js",
+    "filename": "../glowing-octo-guacamole/server/controllers/api.js",
     "groupTitle": "Server"
   },
   {
@@ -547,7 +547,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../server/controllers/user.js",
+    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
     "groupTitle": "User",
     "success": {
       "fields": {
@@ -752,7 +752,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../server/controllers/user.js",
+    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
     "groupTitle": "User",
     "success": {
       "fields": {
@@ -906,7 +906,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../server/controllers/user.js",
+    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
     "groupTitle": "User"
   }
 ]
