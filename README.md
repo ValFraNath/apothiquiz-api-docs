@@ -1,6 +1,6 @@
 # Guacamole API Documentation
 
-API Documentation for the [Glowing Octo Guacamole](https://github.com/nathanaelhoun/glowing-octo-guacamole) server.
+API Documentation for the [Glowing Octo Guacamole](https://github.com/ValFraNath/glowing-octo-guacamole) server.
 Generated with [`apidoc`](https://github.com/apidoc/apidoc/).
 
 ## Installation
