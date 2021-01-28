@@ -18,7 +18,11 @@
   "apidoc": "0.3.0",
   "generator": {
     "name": "apidoc",
+<<<<<<< Updated upstream
     "time": "2021-01-28T13:36:46.480Z",
+=======
+    "time": "2021-01-28T17:19:53.959Z",
+>>>>>>> Stashed changes
     "url": "https://apidocjs.com",
     "version": "0.26.0"
   }
