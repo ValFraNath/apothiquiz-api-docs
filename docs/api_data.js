@@ -628,7 +628,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/users/about",
+    "url": "/users/",
     "title": "Get data of several users",
     "name": "GetUsersData",
     "group": "User",
