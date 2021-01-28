@@ -627,6 +627,54 @@
     }
   },
   {
+    "type": "post",
+    "url": "/users/",
+    "title": "Get data of several users",
+    "name": "GetUsersData",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string[]",
+            "optional": false,
+            "field": "listOfUsers",
+            "description": "<p>Pseudo of several users</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "object[]",
+            "optional": false,
+            "field": "users",
+            "description": "<p>All users in an array</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
+    "groupTitle": "User",
+    "error": {
+      "fields": {
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "patch",
     "url": "/user/:pseudo",
     "title": "Patch user informations",
