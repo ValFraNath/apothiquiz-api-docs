@@ -525,41 +525,6 @@
   },
   {
     "type": "get",
-    "url": "/users/",
-    "title": "Get data of all users",
-    "name": "GetAllUsersData",
-    "group": "User",
-    "success": {
-      "fields": {
-        "200": [
-          {
-            "group": "200",
-            "type": "object[]",
-            "optional": false,
-            "field": "users",
-            "description": "<p>All users in an array</p>"
-          }
-        ]
-      }
-    },
-    "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
-    "groupTitle": "User",
-    "error": {
-      "fields": {
-        "500": [
-          {
-            "group": "500",
-            "optional": false,
-            "field": "ServerError",
-            "description": "<p>Server-side error</p>"
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "get",
     "url": "/user/:pseudo",
     "title": "Get user informations",
     "name": "GetUserInformations",
