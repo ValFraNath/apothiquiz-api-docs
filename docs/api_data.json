@@ -403,6 +403,18 @@
     "title": "Get the last imported file",
     "name": "GetLastImported",
     "group": "Import",
+    "permission": [
+      {
+        "name": "LoggedIn",
+        "title": "Logged user access only",
+        "description": "<p>The user has to be logged in to use this endpoint (see Authentication)</p>"
+      },
+      {
+        "name": "Admin",
+        "title": "Admin users only",
+        "description": "<p>The user has to be admin to use this endpoint</p>"
+      }
+    ],
     "success": {
       "fields": {
         "200": [
@@ -541,12 +553,6 @@
           {
             "group": "400",
             "optional": false,
-            "field": "BadFormattedFile",
-            "description": "<p>The csv file is badly formatted</p>"
-          },
-          {
-            "group": "400",
-            "optional": false,
             "field": "BadFileType",
             "description": "<p>The file is not csv</p>"
           },
@@ -555,6 +561,14 @@
             "optional": false,
             "field": "MissingFile",
             "description": "<p>No file provided</p>"
+          }
+        ],
+        "422": [
+          {
+            "group": "422",
+            "optional": false,
+            "field": "BadFormattedFile",
+            "description": "<p>The csv file is badly formatted</p>"
           }
         ],
         "500": [
@@ -569,7 +583,12 @@
       "examples": [
         {
           "title": "BadlyFormattedFile Error-Response:",
-          "content": "{\n  \"message\": {\n    \"message\": \"Badly formatted file\",\n    \"errors\": [\n      {\n        \"code\": 1,\n        \"message\": \"Colonne manquante : 'FORMULE_CHIMIQUE'\"\n      },\n      {\n        \"code\": 4,\n        \"message\": \"Colonne invalide : 'INDICATIO' (col. 10)\"\n      },\n      {\n        \"code\": 4,\n        \"message\": \"Colonne invalide : 'FORMULE CHIMIQUE' (col. 19)\"\n      }\n    ],\n    \"imported\": false\n  }\n}",
+          "content": "{\n  \"message\": \"Badly formatted file\",\n  \"errors\": [\n    {\n      \"code\": 1,\n      \"message\": \"Colonne manquante : 'FORMULE_CHIMIQUE'\"\n    },\n    {\n      \"code\": 4,\n      \"message\": \"Colonne invalide : 'INDICATIO' (col. 10)\"\n    },\n    {\n      \"code\": 4,\n      \"message\": \"Colonne invalide : 'FORMULE CHIMIQUE' (col. 19)\"\n    }\n  ],\n  \"imported\": false      \n}",
+          "type": "json"
+        },
+        {
+          "title": "400 Error-Response:",
+          "content": "{\n  \"message\" : \"Fichier manquant\"\n}",
           "type": "json"
         }
       ]
