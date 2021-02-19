@@ -399,9 +399,65 @@ define({ "api": [
   },
   {
     "type": "get",
+    "url": "/import/images",
+    "title": "Get the last imported images",
+    "name": "GetLastImportedImages",
+    "group": "Import",
+    "permission": [
+      {
+        "name": "LoggedIn",
+        "title": "Logged user access only",
+        "description": "<p>The user has to be logged in to use this endpoint (see Authentication)</p>"
+      },
+      {
+        "name": "Admin",
+        "title": "Admin users only",
+        "description": "<p>The user has to be admin to use this endpoint</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "url",
+            "description": "<p>The url to the images archive</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "shortpath",
+            "description": "<p>The path to the archive in the server</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "file",
+            "description": "<p>The archive name</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n     \"url\": \"https://glowing-octo-guacamole.com/api/v1/files/images/images-archive.zip\",\n     \"shortpath\" : \"/api/v1/files/images/images-archive.zip\",\n     \"file\" : \"images-archive.zip\"\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../glowing-octo-guacamole/server/controllers/imagesImporter.js",
+    "groupTitle": "Import"
+  },
+  {
+    "type": "get",
     "url": "/import/molecules",
     "title": "Get the last imported file",
-    "name": "GetLastImported",
+    "name": "GetLastImportedMolecules",
     "group": "Import",
     "permission": [
       {
@@ -444,13 +500,138 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n     \"url\": \"https://glowing-octo-guacamole.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
+          "content": "{\n     \"url\": \"https://glowing-octo-guacamole.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"/files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
           "type": "json"
         }
       ]
     },
     "version": "0.0.0",
     "filename": "../glowing-octo-guacamole/server/controllers/moleculesImporter.js",
+    "groupTitle": "Import"
+  },
+  {
+    "type": "post",
+    "url": "/import/images",
+    "title": "Import molecules images",
+    "name": "ImportImages",
+    "group": "Import",
+    "permission": [
+      {
+        "name": "LoggedIn",
+        "title": "Logged user access only",
+        "description": "<p>The user has to be logged in to use this endpoint (see Authentication)</p>"
+      },
+      {
+        "name": "Admin",
+        "title": "Admin users only",
+        "description": "<p>The user has to be admin to use this endpoint</p>"
+      }
+    ],
+    "description": "<p>Import images to bind them to molecules; the format of the request must be multipart/form-data!</p>",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "File",
+            "optional": false,
+            "field": "file",
+            "description": "<p>The images</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "confirmed",
+            "description": "<p>If &quot;true&quot;, the images will be imported, otherwise they will be only tested</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "201 | 202": [
+          {
+            "group": "201 | 202",
+            "type": "string",
+            "optional": false,
+            "field": "message",
+            "description": "<p>Message explaining what has been done</p>"
+          },
+          {
+            "group": "201 | 202",
+            "type": "object[]",
+            "optional": false,
+            "field": "warnings",
+            "description": "<p>Array of warnings</p>"
+          },
+          {
+            "group": "201 | 202",
+            "type": "object",
+            "optional": false,
+            "field": "warnings.warning",
+            "description": "<p>A warning</p>"
+          },
+          {
+            "group": "201 | 202",
+            "type": "number",
+            "optional": false,
+            "field": "warnings.warning.code",
+            "description": "<p>The warning code</p>"
+          },
+          {
+            "group": "201 | 202",
+            "type": "string",
+            "optional": false,
+            "field": "warnings.warning.message",
+            "description": "<p>The warning message</p>"
+          },
+          {
+            "group": "201 | 202",
+            "type": "boolean",
+            "optional": false,
+            "field": "imported",
+            "description": "<p>Boolean telling if images are imported</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{\n     \"message\": \"Images tested but not imported\",\n     \"warnings\": [\n       {\n         \"code\": 3,\n         \"message\": \"Molécule invalide : \\\"$zanamivir_copie\\\" \"\n       },\n       {\n         \"code\": 1,\n         \"message\": \"Plusieurs images pour la molécule \\\"abacavir\\\"\"\n       },\n       {\n         \"code\" : 2,\n         \"message\" : \"Molécule inconnue : \\\"aseltamivir\\\"\"\n       }\n     ],\n     \"imported\": false\n   }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "optional": false,
+            "field": "MissingFile",
+            "description": "<p>No file provided</p>"
+          }
+        ],
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "400 Error-Response:",
+          "content": "{\n  \"message\" : \"Fichier manquant\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "version": "0.0.0",
+    "filename": "../glowing-octo-guacamole/server/controllers/imagesImporter.js",
     "groupTitle": "Import"
   },
   {
@@ -542,7 +723,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n     \"message\": \"File tested but not imported\",\n     \"warnings\": [\n       {\n         \"type\": 3,\n         \"message\": \"Ces valeurs de \\\"classes\\\" sont très proches : \\\"PENICILLINES A\\\", \\\"PENICILLINES\\\"\"\n       },\n       {\n         \"type\": 3,\n         \"message\": \"Ces valeurs de \\\"indications\\\" sont très proches : \\\"VIH\\\", \\\"VHB\\\"\"\n       }\n     ],\n     \"imported\": false\n   }",
+          "content": "{\n     \"message\": \"File tested but not imported\",\n     \"warnings\": [\n       {\n         \"code\": 3,\n         \"message\": \"Ces valeurs de \\\"classes\\\" sont très proches : \\\"PENICILLINES A\\\", \\\"PENICILLINES\\\"\"\n       },\n       {\n         \"code\": 3,\n         \"message\": \"Ces valeurs de \\\"indications\\\" sont très proches : \\\"VIH\\\", \\\"VHB\\\"\"\n       }\n     ],\n     \"imported\": false\n   }",
           "type": "json"
         }
       ]
