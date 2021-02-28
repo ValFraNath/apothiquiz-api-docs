@@ -1,7 +1,7 @@
 {
   "name": "guacamole-api-docs",
   "version": "1.0.0",
-  "description": "Glowing Octo Guacamole API Documentation powered by apidoc",
+  "description": "Guacamole API Documentation powered by apidoc",
   "main": "none",
   "dependencies": {
     "apidoc": "^0.26.0"
@@ -18,9 +18,9 @@
   "apidoc": {
     "name": "Guacamole API documentation",
     "version": "1.0.0",
-    "description": "Documentation for the REST API of Glowing Octo Guacamole",
+    "description": "Documentation for the REST API of Guacamole",
     "title": "Documentation Guacamole API ",
-    "url": "https://glowing-octo-guacamole.com/api/v1",
+    "url": "https://guacamole.com/api/v1",
     "header": {
       "title": "Authentication",
       "filename": "authentication.md"

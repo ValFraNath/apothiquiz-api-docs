@@ -1,171 +1,6 @@
 [
   {
     "type": "post",
-    "url": "/config",
-    "title": "Update the duels configuration",
-    "name": "UpdateConfig",
-    "group": "Config",
-    "parameter": {
-      "fields": {
-        "Parameter": [
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "roundsPerDuel",
-            "description": "<p>The number of round in a duel</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "questionsPerRound",
-            "description": "<p>The number of question in a round</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "string",
-            "optional": false,
-            "field": "questionsTimerDuration",
-            "description": "<p>The duration of the question timer</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n  \"questionsPerRound\": 5,\n  \"roundsPerDuel\" : 6,\n  \"questionTimerDuration\" : 12,\n}",
-          "type": "string"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "200": [
-          {
-            "group": "200",
-            "type": "object",
-            "optional": false,
-            "field": "roundsPerDuel",
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "string",
-            "optional": false,
-            "field": "roundsPerDuel.value",
-            "description": "<p>The number of round in a duel</p>"
-          },
-          {
-            "group": "200",
-            "type": "string",
-            "optional": false,
-            "field": "roundsPerDuel.min",
-            "description": "<p>The minimum number of round in a duel</p>"
-          },
-          {
-            "group": "200",
-            "type": "string",
-            "optional": false,
-            "field": "roundsPerDuel.max",
-            "description": "<p>The maximun number of round in a duel</p>"
-          },
-          {
-            "group": "200",
-            "type": "object",
-            "optional": false,
-            "field": "questionsPerRound",
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "string",
-            "optional": false,
-            "field": "questionsPerRound.value",
-            "description": "<p>The number of question in a round</p>"
-          },
-          {
-            "group": "200",
-            "type": "string",
-            "optional": false,
-            "field": "questionsPerRound.min",
-            "description": "<p>The minimum number of question in a round</p>"
-          },
-          {
-            "group": "200",
-            "type": "string",
-            "optional": false,
-            "field": "questionsPerRound.max",
-            "description": "<p>The maximun number of question in a round</p>"
-          },
-          {
-            "group": "200",
-            "type": "object",
-            "optional": false,
-            "field": "questionTimerDuration",
-            "description": ""
-          },
-          {
-            "group": "200",
-            "type": "string",
-            "optional": false,
-            "field": "questionTimerDuration.value",
-            "description": "<p>The question timer duration</p>"
-          },
-          {
-            "group": "200",
-            "type": "string",
-            "optional": false,
-            "field": "questionTimerDuration.min",
-            "description": "<p>The minimum question timer duration</p>"
-          },
-          {
-            "group": "200",
-            "type": "string",
-            "optional": false,
-            "field": "questionTimerDuration.max",
-            "description": "<p>The maximun question timer duration</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "{  \n  \"questionsPerRound\": {\n    \"value\" : 5\n    \"min\": 1,\n    \"max\": 10,\n  },\n  \"questionTimerDuration\": {\n    \"value\" : 12\n    \"min\": 2,\n    \"max\": 20,\n  },\n  \"roundsPerDuel\": {\n    \"value\" : 6\n    \"min\": 1,\n    \"max\": 8,\n  },\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "permission": [
-      {
-        "name": "LoggedIn",
-        "title": "Logged user access only",
-        "description": "<p>The user has to be logged in to use this endpoint (see Authentication)</p>"
-      },
-      {
-        "name": "Admin",
-        "title": "Admin users only",
-        "description": "<p>The user has to be admin to use this endpoint</p>"
-      }
-    ],
-    "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/config.js",
-    "groupTitle": "Config",
-    "error": {
-      "fields": {
-        "500": [
-          {
-            "group": "500",
-            "optional": false,
-            "field": "ServerError",
-            "description": "<p>Server-side error</p>"
-          }
-        ]
-      }
-    }
-  },
-  {
-    "type": "post",
     "url": "/duel/new",
     "title": "Create a new duel",
     "name": "CreateNewDuel",
@@ -246,7 +81,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/duels.js",
+    "filename": "../guacamole/server/controllers/duels.js",
     "groupTitle": "Duel"
   },
   {
@@ -276,7 +111,7 @@
       }
     ],
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/duels.js",
+    "filename": "../guacamole/server/controllers/duels.js",
     "groupTitle": "Duel",
     "error": {
       "fields": {
@@ -456,7 +291,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/duels.js",
+    "filename": "../guacamole/server/controllers/duels.js",
     "groupTitle": "Duel"
   },
   {
@@ -559,7 +394,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/duels.js",
+    "filename": "../guacamole/server/controllers/duels.js",
     "groupTitle": "Duel"
   },
   {
@@ -609,7 +444,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n     \"url\": \"https://glowing-octo-guacamole.com/api/v1/files/images/images-archive.zip\",\n     \"shortpath\" : \"/api/v1/files/images/images-archive.zip\",\n     \"file\" : \"images-archive.zip\"\n   }",
+          "content": "{\n     \"url\": \"https://guacamole.com/api/v1/files/images/images-archive.zip\",\n     \"shortpath\" : \"/api/v1/files/images/images-archive.zip\",\n     \"file\" : \"images-archive.zip\"\n   }",
           "type": "json"
         }
       ]
@@ -627,7 +462,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/imagesImporter.js",
+    "filename": "../guacamole/server/controllers/imagesImporter.js",
     "groupTitle": "Import"
   },
   {
@@ -677,7 +512,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n     \"url\": \"https://glowing-octo-guacamole.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"/files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
+          "content": "{\n     \"url\": \"https://guacamole.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"/files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
           "type": "json"
         }
       ]
@@ -695,7 +530,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/moleculesImporter.js",
+    "filename": "../guacamole/server/controllers/moleculesImporter.js",
     "groupTitle": "Import"
   },
   {
@@ -745,7 +580,7 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n     \"url\": \"https://glowing-octo-guacamole.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"/files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
+          "content": "{\n     \"url\": \"https://guacamole.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"/files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
           "type": "json"
         }
       ]
@@ -763,7 +598,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/usersImportation.js",
+    "filename": "../guacamole/server/controllers/usersImportation.js",
     "groupTitle": "Import"
   },
   {
@@ -888,7 +723,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/imagesImporter.js",
+    "filename": "../guacamole/server/controllers/imagesImporter.js",
     "groupTitle": "Import"
   },
   {
@@ -1032,7 +867,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/moleculesImporter.js",
+    "filename": "../guacamole/server/controllers/moleculesImporter.js",
     "groupTitle": "Import"
   },
   {
@@ -1171,7 +1006,7 @@
       ]
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/usersImportation.js",
+    "filename": "../guacamole/server/controllers/usersImportation.js",
     "groupTitle": "Import"
   },
   {
@@ -1271,7 +1106,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/question.js",
+    "filename": "../guacamole/server/controllers/question.js",
     "groupTitle": "Question"
   },
   {
@@ -1301,7 +1136,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/api.js",
+    "filename": "../guacamole/server/controllers/api.js",
     "groupTitle": "Server"
   },
   {
@@ -1324,7 +1159,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
+    "filename": "../guacamole/server/controllers/user.js",
     "groupTitle": "User",
     "error": {
       "fields": {
@@ -1365,7 +1200,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
+    "filename": "../guacamole/server/controllers/user.js",
     "groupTitle": "User",
     "success": {
       "fields": {
@@ -1477,7 +1312,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
+    "filename": "../guacamole/server/controllers/user.js",
     "groupTitle": "User",
     "error": {
       "fields": {
@@ -1620,7 +1455,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
+    "filename": "../guacamole/server/controllers/user.js",
     "groupTitle": "User",
     "success": {
       "fields": {
@@ -1774,7 +1609,7 @@
       }
     },
     "version": "0.0.0",
-    "filename": "../glowing-octo-guacamole/server/controllers/user.js",
+    "filename": "../guacamole/server/controllers/user.js",
     "groupTitle": "User"
   }
 ]
