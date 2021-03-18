@@ -1,5 +1,301 @@
 define({ "api": [
   {
+    "type": "get",
+    "url": "/config",
+    "title": "Get the duels configuration",
+    "name": "GetConfig",
+    "group": "Config",
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "object",
+            "optional": false,
+            "field": "roundsPerDuel",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "roundsPerDuel.value",
+            "description": "<p>The number of round in a duel</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "roundsPerDuel.min",
+            "description": "<p>The minimum number of round in a duel</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "roundsPerDuel.max",
+            "description": "<p>The maximun number of round in a duel</p>"
+          },
+          {
+            "group": "200",
+            "type": "object",
+            "optional": false,
+            "field": "questionsPerRound",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionsPerRound.value",
+            "description": "<p>The number of question in a round</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionsPerRound.min",
+            "description": "<p>The minimum number of question in a round</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionsPerRound.max",
+            "description": "<p>The maximun number of question in a round</p>"
+          },
+          {
+            "group": "200",
+            "type": "object",
+            "optional": false,
+            "field": "questionTimerDuration",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionTimerDuration.value",
+            "description": "<p>The question timer duration</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionTimerDuration.min",
+            "description": "<p>The minimum question timer duration</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionTimerDuration.max",
+            "description": "<p>The maximun question timer duration</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{  \n  \"questionsPerRound\": {\n    \"value\" : 5\n    \"min\": 1,\n    \"max\": 10,\n  },\n  \"questionTimerDuration\": {\n    \"value\" : 12\n    \"min\": 2,\n    \"max\": 20,\n  },\n  \"roundsPerDuel\": {\n    \"value\" : 6\n    \"min\": 1,\n    \"max\": 8,\n  },\n  \"duelLifetime\": {\n    \"value\" : 6\n    \"min\": 1,\n    \"max\": 10,\n  },\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "LoggedIn",
+        "title": "Logged user access only",
+        "description": "<p>The user has to be logged in to use this endpoint (see Authentication)</p>"
+      },
+      {
+        "name": "Admin",
+        "title": "Admin users only",
+        "description": "<p>The user has to be admin to use this endpoint</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "../guacamole/server/controllers/config.js",
+    "groupTitle": "Config",
+    "error": {
+      "fields": {
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "type": "post",
+    "url": "/config",
+    "title": "Update the duels configuration",
+    "name": "UpdateConfig",
+    "group": "Config",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "roundsPerDuel",
+            "description": "<p>The number of round in a duel</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "questionsPerRound",
+            "description": "<p>The number of question in a round</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "questionsTimerDuration",
+            "description": "<p>The duration of the question timer</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n  \"questionsPerRound\": 5,\n  \"roundsPerDuel\" : 6,\n  \"questionTimerDuration\" : 12,\n  \"DuelLifetime\" : 5\n}",
+          "type": "string"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "object",
+            "optional": false,
+            "field": "roundsPerDuel",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "roundsPerDuel.value",
+            "description": "<p>The number of round in a duel</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "roundsPerDuel.min",
+            "description": "<p>The minimum number of round in a duel</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "roundsPerDuel.max",
+            "description": "<p>The maximun number of round in a duel</p>"
+          },
+          {
+            "group": "200",
+            "type": "object",
+            "optional": false,
+            "field": "questionsPerRound",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionsPerRound.value",
+            "description": "<p>The number of question in a round</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionsPerRound.min",
+            "description": "<p>The minimum number of question in a round</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionsPerRound.max",
+            "description": "<p>The maximun number of question in a round</p>"
+          },
+          {
+            "group": "200",
+            "type": "object",
+            "optional": false,
+            "field": "questionTimerDuration",
+            "description": ""
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionTimerDuration.value",
+            "description": "<p>The question timer duration</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionTimerDuration.min",
+            "description": "<p>The minimum question timer duration</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "questionTimerDuration.max",
+            "description": "<p>The maximun question timer duration</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "{  \n  \"questionsPerRound\": {\n    \"value\" : 5\n    \"min\": 1,\n    \"max\": 10,\n  },\n  \"questionTimerDuration\": {\n    \"value\" : 12\n    \"min\": 2,\n    \"max\": 20,\n  },\n  \"roundsPerDuel\": {\n    \"value\" : 6\n    \"min\": 1,\n    \"max\": 8,\n  },\n  \"duelLifetime\": {\n    \"value\" : 6\n    \"min\": 1,\n    \"max\": 10,\n  },\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "permission": [
+      {
+        "name": "LoggedIn",
+        "title": "Logged user access only",
+        "description": "<p>The user has to be logged in to use this endpoint (see Authentication)</p>"
+      },
+      {
+        "name": "Admin",
+        "title": "Admin users only",
+        "description": "<p>The user has to be admin to use this endpoint</p>"
+      }
+    ],
+    "version": "0.0.0",
+    "filename": "../guacamole/server/controllers/config.js",
+    "groupTitle": "Config",
+    "error": {
+      "fields": {
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      }
+    }
+  },
+  {
     "type": "post",
     "url": "/duel/new",
     "title": "Create a new duel",
@@ -1140,11 +1436,94 @@ define({ "api": [
     "groupTitle": "Server"
   },
   {
+    "type": "post",
+    "url": "/users/token",
+    "title": "Generate a new access token",
+    "name": "GenerateAccessToken",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "refreshToken",
+            "description": "<p>The refresh token</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "200": [
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "accessToken",
+            "description": "<p>A new access token</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "optional": false,
+            "field": "InvalidToken",
+            "description": "<p>The token is invalid or expired</p>"
+          },
+          {
+            "group": "400",
+            "optional": false,
+            "field": "MissingToken",
+            "description": "<p>The token is missing</p>"
+          }
+        ],
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../guacamole/server/controllers/user.js",
+    "groupTitle": "User"
+  },
+  {
     "type": "get",
     "url": "/users/",
-    "title": "Get data of all users",
+    "title": "Get data of users",
     "name": "GetAllUsersData",
     "group": "User",
+    "permission": [
+      {
+        "name": "LoggedIn",
+        "title": "Logged user access only",
+        "description": "<p>The user has to be logged in to use this endpoint (see Authentication)</p>"
+      }
+    ],
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "Boolean",
+            "optional": false,
+            "field": "challengeable",
+            "defaultValue": "false",
+            "description": "<p>Only get challengeable users</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "fields": {
         "200": [
@@ -1154,6 +1533,34 @@ define({ "api": [
             "optional": false,
             "field": "users",
             "description": "<p>All users in an array</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "users.pseudo",
+            "description": "<p>Pseudo of the user</p>"
+          },
+          {
+            "group": "200",
+            "type": "int",
+            "optional": false,
+            "field": "users.victories",
+            "description": "<p>Number of victories</p>"
+          },
+          {
+            "group": "200",
+            "type": "int",
+            "optional": false,
+            "field": "users.defeats",
+            "description": "<p>Number of defeats</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "users.avatar",
+            "description": "<p>JSONified avatar informations</p>"
           }
         ]
       }
@@ -1176,7 +1583,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "/user/:pseudo",
+    "url": "/users/:pseudo",
     "title": "Get user informations",
     "name": "GetUserInformations",
     "group": "User",
@@ -1285,6 +1692,13 @@ define({ "api": [
     "title": "Get data of several users",
     "name": "GetUsersData",
     "group": "User",
+    "permission": [
+      {
+        "name": "LoggedIn",
+        "title": "Logged user access only",
+        "description": "<p>The user has to be logged in to use this endpoint (see Authentication)</p>"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
@@ -1329,7 +1743,7 @@ define({ "api": [
   },
   {
     "type": "patch",
-    "url": "/user/:pseudo",
+    "url": "/users/:pseudo",
     "title": "Patch user informations",
     "name": "PatchUserInformations",
     "group": "User",
@@ -1536,7 +1950,7 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "/user/login",
+    "url": "/users/login",
     "title": "Post a user login",
     "name": "PostUserLogin",
     "group": "User",
@@ -1574,14 +1988,29 @@ define({ "api": [
             "group": "200",
             "type": "string",
             "optional": false,
-            "field": "token",
-            "description": "<p>the user token</p>"
+            "field": "accessToken",
+            "description": "<p>the user access token</p>"
+          },
+          {
+            "group": "200",
+            "type": "string",
+            "optional": false,
+            "field": "refreshToken",
+            "description": "<p>the user refresh token</p>"
           }
         ]
       }
     },
     "error": {
       "fields": {
+        "400": [
+          {
+            "group": "400",
+            "optional": false,
+            "field": "BadRequestFormat",
+            "description": ""
+          }
+        ],
         "401": [
           {
             "group": "401",
@@ -1595,6 +2024,56 @@ define({ "api": [
             "group": "404",
             "optional": false,
             "field": "UserNotFound",
+            "description": ""
+          }
+        ],
+        "500": [
+          {
+            "group": "500",
+            "optional": false,
+            "field": "ServerError",
+            "description": "<p>Server-side error</p>"
+          }
+        ]
+      }
+    },
+    "version": "0.0.0",
+    "filename": "../guacamole/server/controllers/user.js",
+    "groupTitle": "User"
+  },
+  {
+    "type": "post",
+    "url": "/users/logout",
+    "title": "User logout",
+    "name": "UserLogout",
+    "group": "User",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "string",
+            "optional": false,
+            "field": "refreshToken",
+            "description": "<p>The user refresh token</p>"
+          }
+        ]
+      }
+    },
+    "permission": [
+      {
+        "name": "LoggedIn",
+        "title": "Logged user access only",
+        "description": "<p>The user has to be logged in to use this endpoint (see Authentication)</p>"
+      }
+    ],
+    "error": {
+      "fields": {
+        "400": [
+          {
+            "group": "400",
+            "optional": false,
+            "field": "BadRequestFormat",
             "description": ""
           }
         ],
