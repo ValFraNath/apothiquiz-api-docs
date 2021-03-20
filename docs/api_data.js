@@ -358,6 +358,14 @@ define({ "api": [
             "description": "<p>The specified opponent does not exist</p>"
           }
         ],
+        "409": [
+          {
+            "group": "409",
+            "optional": false,
+            "field": "DuelAlreadyExists",
+            "description": "<p>A duel against this user already exists</p>"
+          }
+        ],
         "422": [
           {
             "group": "422",
@@ -1519,7 +1527,7 @@ define({ "api": [
             "optional": false,
             "field": "challengeable",
             "defaultValue": "false",
-            "description": "<p>Only get challengeable users</p>"
+            "description": "<p>Query parameter: Only get challengeable users</p>"
           }
         ]
       }
