@@ -1,7 +1,7 @@
 {
-  "name": "guacamole-api-docs",
+  "name": "apothiquiz-api-docs",
   "version": "1.0.0",
-  "description": "Guacamole API Documentation powered by apidoc",
+  "description": "Apothiquiz API Documentation powered by apidoc",
   "main": "none",
   "dependencies": {
     "apidoc": "^0.26.0"
@@ -16,11 +16,11 @@
   },
   "author": "",
   "apidoc": {
-    "name": "Guacamole API documentation",
+    "name": "Apothiquiz API documentation",
     "version": "1.0.0",
-    "description": "Documentation for the REST API of Guacamole",
-    "title": "Documentation Guacamole API ",
-    "url": "https://guacamole.com/api/v1",
+    "description": "Documentation for the REST API of Apothiquiz",
+    "title": "Documentation Apothiquiz API ",
+    "url": "https://apothiquiz.com/api/v1",
     "header": {
       "title": "Authentication",
       "filename": "authentication.md"

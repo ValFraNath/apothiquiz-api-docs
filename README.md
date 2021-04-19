@@ -1,6 +1,6 @@
-# Guacamole API Documentation
+# Apothiquiz API Documentation
 
-API Documentation for the [Guacamole](https://github.com/ValFraNath/guacamole) server.
+API Documentation for the [Apothiquiz](https://github.com/ValFraNath/apothiquiz) server.
 Generated with [`apidoc`](https://github.com/apidoc/apidoc/).
 
 ## Installation

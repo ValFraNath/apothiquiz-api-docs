@@ -748,7 +748,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n     \"url\": \"https://guacamole.com/api/v1/files/images/images-archive.zip\",\n     \"shortpath\" : \"/api/v1/files/images/images-archive.zip\",\n     \"file\" : \"images-archive.zip\"\n   }",
+          "content": "{\n     \"url\": \"https://apothiquiz.com/api/v1/files/images/images-archive.zip\",\n     \"shortpath\" : \"/api/v1/files/images/images-archive.zip\",\n     \"file\" : \"images-archive.zip\"\n   }",
           "type": "json"
         }
       ]
@@ -816,7 +816,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n     \"url\": \"https://guacamole.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"/files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
+          "content": "{\n     \"url\": \"https://apothiquiz.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"/files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
           "type": "json"
         }
       ]
@@ -884,7 +884,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "{\n     \"url\": \"https://guacamole.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"/files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
+          "content": "{\n     \"url\": \"https://apothiquiz.com/files/molecules/molecules_1612279095021.csv\",\n     \"shortpath\" : \"/files/molecules/molecules_1612279095021.csv\",\n     \"file\" : \"molecules_1612279095021.csv\"\n   }",
           "type": "json"
         }
       ]
