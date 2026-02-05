@@ -4,7 +4,7 @@
   "description": "Apothiquiz API Documentation powered by apidoc",
   "main": "none",
   "dependencies": {
-    "apidoc": "^0.26.0"
+    "apidoc": "^1.2.0"
   },
   "devDependencies": {},
   "scripts": {
